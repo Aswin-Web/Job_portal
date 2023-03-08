@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route,Routes } from 'react-router-dom'
+import JobseekerPage from './Pages/JobSeeker Page/JobseekerPage';
+import "./Pages/JobSeeker Page/JobSeeker_Page_index.css"
+import AddApplication from './Pages/JobSeeker Page/components/AddApplication'
 
 function App() {
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={"<h1>Hello</h1>"}/>
+        <Route path="/user" element={<JobseekerPage />} />
+        <Route path='/app' element={<AddApplication/>} />
+      </Routes>
     </div>
   );
 }
