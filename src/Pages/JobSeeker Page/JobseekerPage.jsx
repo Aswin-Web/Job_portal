@@ -9,7 +9,10 @@ const JobseekerPage = () => {
     <div className="components">
       <Navbar className="Navbar" />
       <Box className="UserBody">
-        <LeftSideBar />
+        <Box>
+          <LeftSideBar />
+
+        </Box>
         <RightSideBar />
       </Box>
     </div>

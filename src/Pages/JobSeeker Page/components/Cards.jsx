@@ -5,6 +5,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EditIcon from "@mui/icons-material/Edit";
 import LanguageIcon from "@mui/icons-material/Language";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import Popup from './Utils/Popup';
+import AddApplication from './AddApplication'
 
 const Cards = () => {
   
@@ -47,7 +49,12 @@ const Cards = () => {
               </Typography>
             </Box>
             <Box>
-              <Button
+              <Popup
+                content={<EditIcon />}
+                body={<AddApplication />}
+                title="Edit Post"
+              />
+              {/* <Button
                 variant="contained"
                 sx={{
                   backgroundColor: "#F94A29",
@@ -58,7 +65,7 @@ const Cards = () => {
                 
               >
                 <EditIcon />
-              </Button>
+              </Button> */}
             </Box>
           </Box>
           <Box
@@ -92,7 +99,7 @@ const Cards = () => {
           </Box>
           <Box
             sx={{
-              padding:'10px',
+              padding: "10px",
               height: "20%",
             }}
           >
@@ -107,7 +114,7 @@ const Cards = () => {
               display: "flex",
               justifyContent: "space-around",
               alignItems: "flex-start",
-              marginTop:'10px',
+              marginTop: "10px",
             }}
           >
             <Button
@@ -380,6 +387,7 @@ const Cards = () => {
           </Box>
         </Box> 
       </Box>*/}
+      {/* <Outlet/> */}
     </>
   );
 };

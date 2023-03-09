@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import ResuableButton from "./Button";
+import { Box } from "@mui/material";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -59,44 +60,35 @@ export default function CustomizedDialogs(props) {
   };
 
   return (
-    <div>
-      <Button onClick={handleClickOpen}>
-        <ResuableButton content={props.content} />
-      </Button>
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
+    <>
+      <div>
+        <Box onClick={handleClickOpen}>
+          <ResuableButton content={props.content} />
+        </Box>
+        <BootstrapDialog
           onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
         >
-          Modal title
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
-      </BootstrapDialog>
-    </div>
+          <BootstrapDialogTitle
+            id="customized-dialog-title"
+            onClose={handleClose}
+          >
+            {props.titles}
+          </BootstrapDialogTitle>
+          <DialogContent dividers>
+            <div>
+            {props.body}
+
+            </div>
+            </DialogContent>
+          <DialogActions>
+            <Button  onClick={handleClose}>
+              Save
+            </Button>
+          </DialogActions>
+        </BootstrapDialog>
+      </div>
+    </>
   );
 }

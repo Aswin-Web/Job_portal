@@ -29,8 +29,10 @@ body {
    background-color: #11144C;
    color: white;
    font-weight: 300;
+   
 }
 .RightSide{
+   
    flex-grow: 1;
    position: absolute;
    min-height: 100vh;

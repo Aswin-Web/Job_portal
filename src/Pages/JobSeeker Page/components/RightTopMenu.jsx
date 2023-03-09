@@ -8,6 +8,8 @@ import { Box, Tooltip, tooltipClasses } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import styled from "styled-components";
 import Popup from "./Utils/Popup";
+import AddApplication from './AddApplication'
+import Test from './Test'
 
 const BootstrapTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} arrow classes={{ popper: className }} />
@@ -74,15 +76,7 @@ export default function RowRadioButtonsGroup() {
             />
           </RadioGroup>
         </FormControl>
-        <BootstrapTooltip
-          title="Add new post.... "
-          sx={{
-            backgroundColor: "blue",
-            opacity: 1,
-          }}
-        >
-          <Popup content={<AddCircleOutlineIcon/>} dialogBody={'hi'} />
-        </BootstrapTooltip>
+          <Popup content={<AddCircleOutlineIcon/>} body={<AddApplication/>}  titles={'Create New Post'} />
       </Box>
     </>
   );

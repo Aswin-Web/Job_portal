@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from "@mui/material";
 
 const Buttons = (props) => {
-    const {variant,content} =props
+    const {variant,content,buttonType} =props
   return (
 
     <Button
@@ -14,6 +14,7 @@ const Buttons = (props) => {
                   backgroundColor: "#B3005E",
                 },
               }}
+              disabled={buttonType}
              
             >
                 {content}
