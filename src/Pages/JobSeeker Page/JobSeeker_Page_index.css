@@ -36,9 +36,9 @@ body {
    flex-grow: 1;
    position: absolute;
    min-height: 100vh;
-   top: 0;
+   top: 50px;
    right: 0;
-   width: 70%;
+   width: 70vw;
    
 
 }

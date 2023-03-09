@@ -4,23 +4,12 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Box, Tooltip, tooltipClasses } from "@mui/material";
+import { Box, } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import styled from "styled-components";
 import Popup from "./Utils/Popup";
 import AddApplication from './AddApplication'
-import Test from './Test'
 
-const BootstrapTooltip = styled(({ className, ...props }) => (
-  <Tooltip {...props} arrow classes={{ popper: className }} />
-))(({ theme }) => ({
-  
-  [`& .${tooltipClasses.tooltip}`]: {
-   backgroundColor:' #635985',
-   fontWeight:'bolder'
-    
-  },
-}));
+
 
 
 export default function RowRadioButtonsGroup() {
