@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 
 export default function BasicSelect(props) {
 
-    const {title,options}=props
+    const {title,options,variant}=props
 
   const [status, setStatus] = React.useState("Pending");
 
@@ -16,18 +16,32 @@ export default function BasicSelect(props) {
   };
 
   return (
-    <Box sx={{ minWidth: 120,marginTop:'8px' }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{title}</InputLabel>
+    <Box sx={{ minWidth: 120, marginTop: "8px " }}>
+      <FormControl fullWidth variant={variant}>
+        <InputLabel
+          id="demo-simple-select-label"
+          sx={{
+            color: "white",
+          }}
+        >
+          {title}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Status"
           value={status}
           onChange={handleChange}
+          
+          
         >
-          {options.map((data) =>  {   
-            return (<MenuItem value={data} key={data}>{data}</MenuItem>)})}
+          {options.map((data) => {
+            return (
+              <MenuItem value={data} key={data}>
+                {data}
+              </MenuItem>
+            );
+          })}
         </Select>
       </FormControl>
     </Box>

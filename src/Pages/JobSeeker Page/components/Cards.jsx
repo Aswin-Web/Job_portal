@@ -93,7 +93,7 @@ const Cards = () => {
               </Box>
             </Box>
             <Box>
-              <Typography variant="subtitle1">Date: 12/12/2023</Typography>
+              <Typography variant="subtitle1">Lastly Updated: 12/12/2023</Typography>
               <Typography variant="subtitle1">Origin: Linkedin</Typography>
             </Box>
           </Box>

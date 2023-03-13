@@ -4,13 +4,16 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import GradingIcon from "@mui/icons-material/Grading";
+import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
   const ButtonStyles = {
     margin: "10px",
     color: "white",
     display: "flex",
+    width:'85%',
     justifyContent: "flex-start",
+    textDecoration:'none'
     };
   return (
     <div className="LeftSide">
@@ -31,24 +34,32 @@ const LeftSideBar = () => {
           padding: "10px",
         }}
       >
-        <Button variant="outlined" sx={ButtonStyles}>
-          <MoreHorizIcon />
-          <Typography
-            component="h6"
-            sx={{ fontWeight: "bold", marginLeft: "7px",textTransform:'capitalize' }}
-          >
-            Application Status
-          </Typography>
-        </Button>
-        <Button variant="outlined" sx={ButtonStyles}>
-          <ScheduleIcon />
-          <Typography
-            component="h6"
-            sx={{ fontWeight: "bold", marginLeft: "7px" }}
-          >
-            Schedule
-          </Typography>
-        </Button>
+        <Link to="/user" className="LinkAnchorTag">
+          <Button variant="outlined" sx={ButtonStyles}>
+            <MoreHorizIcon />
+            <Typography
+              component="h6"
+              sx={{
+                fontWeight: "bold",
+                marginLeft: "7px",
+                textTransform: "capitalize",
+              }}
+            >
+              Application Status
+            </Typography>
+          </Button>
+        </Link>
+        <Link to="/user/schedule" className="LinkAnchorTag">
+          <Button variant="outlined" sx={ButtonStyles}>
+            <ScheduleIcon />
+            <Typography
+              component="h6"
+              sx={{ fontWeight: "bold", marginLeft: "7px" }}
+            >
+              Schedule
+            </Typography>
+          </Button>
+        </Link>
         <Button variant="outlined" sx={ButtonStyles}>
           <FavoriteBorderIcon />
           <Typography

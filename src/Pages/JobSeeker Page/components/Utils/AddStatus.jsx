@@ -5,6 +5,7 @@ import DropDown from "./Dropdown";
 import { Typography } from "@mui/material";
 import ReusableDate from "./Date";
 import ResuableButton from "./Button";
+import Timer from './Timer'
 
 const AddStatus = (props) => {
   return (
@@ -57,9 +58,10 @@ const AddStatus = (props) => {
               props.DataTransfer({ name: "Ash" });
             }}
           >
-            <ResuableButton content={"Add Status"} />
+            <Timer/>
           </div>
         </Box>
+            <ResuableButton content={"Add Status"} />
       </Box>
     </div>
   );

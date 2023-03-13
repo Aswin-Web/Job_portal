@@ -49,3 +49,7 @@ body {
 .linktag{
    color:white;
 }
+.LinkAnchorTag{
+   color:white;
+   text-decoration: none;
+}
