@@ -45,7 +45,7 @@ export default function ReviewCard() {
       <ul>
         {peoples.map((people) => (
           <li className={classes.cardList}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345,height:'100%' }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
