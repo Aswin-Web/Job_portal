@@ -4,6 +4,7 @@ import App from './App';
 import './index.css'
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
+import { CookiesProvider } from "react-cookie";
 import {
   ThemeProvider,
   createTheme,
@@ -22,7 +23,10 @@ root.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
       <BrowserRouter>
-        <App />
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
+        
       </BrowserRouter>
     </React.StrictMode>
   </ThemeProvider>
