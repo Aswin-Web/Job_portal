@@ -35,12 +35,13 @@ export default function RowRadioButtonsGroup() {
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
+            sx={{ color: "black" }}
           >
             <FormControlLabel
               value="all"
               control={<Radio />}
               label="All"
-              sx={{}}
+              sx={{ color: "black" }}
             />
             <FormControlLabel
               value="pending"
@@ -59,7 +60,11 @@ export default function RowRadioButtonsGroup() {
             />
           </RadioGroup>
         </FormControl>
-        <Dropdown title='Select One' options={['Today','Yesterday','Last 7 days','Last 1 month']} variant={'standard'} />    
+        <Dropdown
+          title="Select One"
+          options={["Today", "Yesterday", "Last 7 days", "Last 1 month"]}
+          variant={"standard"}
+        />
         <Popup
           content={<AddCircleOutlineIcon />}
           body={<AddApplication />}

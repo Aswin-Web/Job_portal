@@ -16,13 +16,14 @@ import { Avatar } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ShareIcon from "@mui/icons-material/Share";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = [
-  "Application Status",
-  "Interview Schedule",
-  "Wishlist",
-  "Feed",
+  {path:"/user/",name:"Application Status"},
+  {path:'schdule',name:"Interview Schedule"},
+  {path:'/wishlist',name:"Wishlist"},
+  {path:'/feed',name:"Feed"},
 ];
 
 export default function DrawerAppBar(props) {
@@ -39,14 +40,16 @@ export default function DrawerAppBar(props) {
       sx={{ textAlign: "center", bgColor: "#11144C" }}
     >
       <Typography variant="h6" sx={{ my: 2 }}>
-        App_Name
+       CarrerSheets
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.name} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <NavLink to={item.path}>
+                <ListItemText primary={item.name} />
+                </NavLink>
             </ListItemButton>
           </ListItem>
         ))}
@@ -66,7 +69,7 @@ export default function DrawerAppBar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, display: { } }}
           >
             <MenuIcon />
           </IconButton>
@@ -79,7 +82,7 @@ export default function DrawerAppBar(props) {
               display: { xs: "none", sm: "block" },
             }}
           >
-            App_Logo
+            CarrerSheets
           </Typography>
           <Box
             sx={{

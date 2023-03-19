@@ -21,8 +21,9 @@ const Cards = () => {
       <Box
         sx={{
           margin: "10px 0",
-          minHeight: "40vh",
+          minHeight: "20vh",
           width: "80%",
+          margin:'auto',
           backgroundColor: "#2b3467",
           borderRadius: "7px",
           boxShadow: "5px 5px 10px #2C3333",
@@ -114,7 +115,7 @@ const Cards = () => {
             >
               <Box
                 sx={{
-                  height: "80%",
+                  
                   backgroundColor: "#11144C",
                   border: "5px Solid #49FF00",
                   borderRadius: "8px",

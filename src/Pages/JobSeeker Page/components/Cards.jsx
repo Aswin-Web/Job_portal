@@ -14,11 +14,11 @@ const Cards = () => {
 
   return (
     <>
-      <Box
+      <Box className=''
         sx={{
-          margin: "10px 0",
-          minHeight: "40vh",
-          width: "80%",
+          padding: "10px 0",
+          minHeight: "10vh",
+          width: "100%",
           backgroundColor: "#2b3467",
           borderRadius: "7px",
           boxShadow: "5px 5px 10px #2C3333",
@@ -34,7 +34,7 @@ const Cards = () => {
         >
           <Box
             sx={{
-              height: "25%",
+              
               display: "flex",
               justifyContent: "space-between",
             }}

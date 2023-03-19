@@ -30,7 +30,7 @@ export default function BasicSelect(props) {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Status"
-          value={status}
+          value={options[0]}
           onChange={handleChange}
           
           

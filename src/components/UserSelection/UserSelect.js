@@ -5,8 +5,19 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import classes from "./UserSelect.module.css";
+import {useNavigate} from 'react-router-dom';
+import { useSelector,useDispatch } from "react-redux";
+import {changeType,changeVerification} from '../../redux/reducers/auth.data'
+import axios from "axios";
 
 const UserSelect = () => {
+  const navigate=useNavigate()
+  
+  
+
+
+
+
   return (
     <div className={classes.contianer}>
       <div className={classes.logo}>

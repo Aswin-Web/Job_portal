@@ -49,7 +49,7 @@ const LeftSideBar = () => {
             </Typography>
           </Button>
         </Link>
-        <Link to="/user/schedule" className="LinkAnchorTag">
+        <Link to="/user/schdule" className="LinkAnchorTag">
           <Button variant="outlined" sx={ButtonStyles}>
             <ScheduleIcon />
             <Typography

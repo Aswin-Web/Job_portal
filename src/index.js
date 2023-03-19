@@ -5,10 +5,17 @@ import './index.css'
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import { CookiesProvider } from "react-cookie";
+
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import authReducer from "./redux/reducers/auth.data";
+
+
 import {
   ThemeProvider,
   createTheme,
 } from "@mui/material/styles";
+
 const theme = createTheme({
   typography: {
     button: {
@@ -18,13 +25,23 @@ const theme = createTheme({
   },
 });
 
+
+
+const store=configureStore({
+  reducer:{
+    auth:authReducer
+  }
+})
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
       <BrowserRouter>
         <CookiesProvider>
-          <App />
+          <Provider store={store}>
+            <App />
+          </Provider>
         </CookiesProvider>
         
       </BrowserRouter>
