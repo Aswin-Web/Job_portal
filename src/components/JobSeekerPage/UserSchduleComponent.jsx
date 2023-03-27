@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import Card from "./Cards"
+import Card from "./UserSchduleCards"
 const main = () => {
     
   return (

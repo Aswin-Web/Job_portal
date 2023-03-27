@@ -2,14 +2,11 @@ import { Button } from "@mui/material";
 import React from "react";
 import classes from "./Profile.module.css";
 import ProfileDetails from "./ProfileDetails";
+import UseAuth from "../../hooks/auth"
 
 const Profile = () => {
-  const clickHandler = () => {
-    window.open("http://192.168.0.186:5001/auth/google", "_self");
-    const response = fetch("http://192.168.0.186:5001/auth/google/");
-    console.log(response);
-  };
-
+ 
+  const {displayPicture,name} =UseAuth()
   return (
     <div className={classes.Container}>
       <div className={classes.head}>
@@ -22,12 +19,12 @@ const Profile = () => {
         <div className={classes.heading}>
           <div className={classes.profilePic}>
             <img
-              src="https://image.shutterstock.com/mosaic_250/2780032/1194497251/stock-photo-portrait-of-smiling-red-haired-millennial-man-looking-at-camera-sitting-in-caf-or-coffeeshop-1194497251.jpg"
+              src={displayPicture}
               alt="profile"
             />
           </div>
           <div className={classes.naming}>
-            <h2>David Miller</h2>
+            <h2>{name}</h2>
             <p>Fullstack developer</p>
           </div>
         </div>
@@ -48,7 +45,7 @@ const Profile = () => {
       <div>
         <ProfileDetails />
       </div>
-      <Button onClick={clickHandler}>get</Button>
+     
     </div>
   );
 };

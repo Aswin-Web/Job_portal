@@ -1,30 +1,56 @@
-import {  Route, Routes } from "react-router-dom";
-import JobseekerPage from "./Pages/JobSeeker Page/JobseekerPage";
-import "./Pages/JobSeeker Page/JobSeeker_Page_index.css";
-import ApplicationStatusComponent from "./Pages/JobSeeker Page/components/ApplicationStatusComponent";
-import UserSchduleComponent from "./Pages/JobSeeker Page/components/SideNavComponents/Schdeule/main";
-  
+import {  Route, Routes, useNavigate } from "react-router-dom";
+import JobseekerPage from "./components/JobSeekerPage/main";
+// import "./Pages/JobSeeker_Page/main.css";
+import "./components/JobSeekerPage/main.css";
+import ApplicationStatusComponent from "./components/JobSeekerPage/ApplicationStatusComponent";
+import UserSchduleComponent from "./components/JobSeekerPage/UserSchduleComponent";
+
+
 import "./App.css";
 import LandingHome from "../src/components/Landingpage/LandingHome";
 import CollegeAdmin from "../src/components/CollegeAdmin/CollegeAdmin";
 import UserSelect from "./components/UserSelection/UserSelect";
 import Profile from "./components/Profile/Profile";
+import UserSelectUI from "./components/UserSelection/UserSelectUI";
+
+import UseAuth from './hooks/auth'
+import { useEffect } from "react";
+//  Controllers
+import UserController from './components/Controller/UserController'
+import CollegeAdminController from "./components/Controller/CollegeAdminController";
+import Logout from "./utils/logout";
 
 
 
 function App() {
+  
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingHome />} />
-        <Route path="/selectuser" element={<UserSelect/>}/>
-        <Route path="/collegeadmin" element={<CollegeAdmin />} />
-        <Route path="/user" element={<JobseekerPage />}>
+        <Route path="/authredirect" element={<UserSelect />} />
+        <Route path="/selectuser" element={<UserSelectUI />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route
+          path="/collegeadmin"
+          element={
+            <CollegeAdminController>
+              <CollegeAdmin />
+            </CollegeAdminController>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <UserController>
+              <JobseekerPage />
+            </UserController>
+          }
+        >
           <Route index element={<ApplicationStatusComponent />} />
           <Route path="schdule" element={<UserSchduleComponent />} />
-          <Route path="profile" element={<Profile/>}/>
+          <Route path="profile" element={<Profile />} />
         </Route>
-        {/* <Route path="/schedule" element={<JobseekerPage />} /> */}
       </Routes>
     </div>
   );

@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import { CookiesProvider } from "react-cookie";
 
-import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import authReducer from "./redux/reducers/auth.data";
+import {userSlice} from '../src/redux/reducers/auth.data'
+import store from "../src/redux/store"
 
 
 import {
@@ -27,11 +27,7 @@ const theme = createTheme({
 
 
 
-const store=configureStore({
-  reducer:{
-    auth:authReducer
-  }
-})
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

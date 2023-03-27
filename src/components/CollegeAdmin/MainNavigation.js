@@ -17,6 +17,9 @@ import ShareIcon from "@mui/icons-material/Share";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 
+import Logout from "../../utils/logout";
+import { Link } from "react-router-dom";
+
 function MainNavigation() {
   // const [leftBar, setLefttbar] = React.useState(true);
 
@@ -78,18 +81,20 @@ function MainNavigation() {
                   display: { xs: "flex", md: "flex", justifyContent: "end" },
                 }}
               >
-                <Box sx={{ fontSize:"1rem" }}>
+                <Box sx={{ fontSize: "1rem" }}>
                   <Button sx={{ color: "white" }}>
                     <ShareIcon />
                   </Button>
                   <p className={classes.iconName}>SHARE</p>
                 </Box>
-                <Box sx={{ marginRight: "1.5em" ,fontSize:"1rem" }}>
-                  <Button sx={{ color: "white" }}>
-                    <LogoutIcon />
-                  </Button>
-                  <p className={classes.iconName}>LOGOUT</p>
-                </Box>
+                <Link to='/logout' className={classes.logout_btn}>
+                  <Box sx={{ marginRight: "1.5em", fontSize: "1rem" }}>
+                    <Button sx={{ color: "white" }}>
+                      <LogoutIcon />
+                    </Button>
+                    <p className={classes.iconName}>LOGOUT</p>
+                  </Box>
+                </Link>
               </Box>
 
               <Box sx={{ flexGrow: 0 }}>

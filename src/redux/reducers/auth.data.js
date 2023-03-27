@@ -1,19 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const userSlice = createSlice({
+const token = JSON.parse(localStorage.getItem("user"));
+const checkLocalStorage = () => {
+  if (token === null) {
+      const userInfo = {
+        token:''
+      };
+    return userInfo;
+  } else {
+    const userInfo = {
+      token:token
+    };
+    return userInfo;
+  }
+};
+
+export const userSlice = createSlice({
   name: "auth",
-  initialState: { type:'none',verification:'false' },
+  initialState: {
+    value: checkLocalStorage()
+  },
   reducers: {
-   
-    changeType:(state,action) =>{
-        state.type=action.payload
+    changeUserInfo(state, action) {
+      state.value = action.payload;
     },
-    changeVerification:(state,action) =>{
-        state.action=action.payload
-    }
   },
 });
 
-export const { changeType } = userSlice.actions;
-export const { changeVerification } = userSlice.actions;
+export const { changeUserInfo } = userSlice.actions;
+
 export default userSlice.reducer;

@@ -16,7 +16,9 @@ import { Avatar } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ShareIcon from "@mui/icons-material/Share";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import UseAuth from '../../hooks/auth'
+import "./main.css"
 
 const drawerWidth = 240;
 const navItems = [
@@ -29,6 +31,7 @@ const navItems = [
 export default function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -59,7 +62,7 @@ export default function DrawerAppBar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
+          const { displayPicture } = UseAuth();
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar component="nav" sx={{ backgroundColor: "#11144C" }}>
@@ -69,7 +72,7 @@ export default function DrawerAppBar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { } }}
+            sx={{ mr: 2, display: {} }}
           >
             <MenuIcon />
           </IconButton>
@@ -82,7 +85,7 @@ export default function DrawerAppBar(props) {
               display: { xs: "none", sm: "block" },
             }}
           >
-            CarrerSheets
+            CareerSheets
           </Typography>
           <Box
             sx={{
@@ -104,26 +107,32 @@ export default function DrawerAppBar(props) {
                 <Typography variant="subtitle1">Refer</Typography>
               </div>
             </Button>
-            <Button
-              sx={{
-                color: "#fff",
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-              }}
-            >
-              <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-              <Typography variant="subtitle1">My Profile</Typography>
-            </Button>
-            <Button sx={{ color: "#fff" }}>
-              <div
+            <Link to="/user/profile" style={{textDecoration:'none'}}>
+              <Button
+                
                 sx={{
+                  color: "#fff",
                   display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  textDecoration:'none'
                 }}
               >
-                <LogoutIcon />
-                <Typography variant="subtitle1">Logout</Typography>
-              </div>
+               
+                <Avatar src={displayPicture} />
+
+                <Typography variant="subtitle1" sx={{textDecoration:"none"}}>My Profile</Typography>
+              </Button>
+            </Link>
+            <Button sx={{ color: "#fff" }} onClick={() => {}}>
+              <Link to="/logout">
+                <Box className="logout_btn">
+                  <LogoutIcon />
+                  <Typography variant="subtitle1" className="logout_btn">
+                    Logout
+                  </Typography>
+                </Box>
+              </Link>
             </Button>
           </Box>
         </Toolbar>

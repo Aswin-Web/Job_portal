@@ -1,6 +1,11 @@
 .iconName{
     font-size: small;
     text-align: center;
+    color:white;
+    text-decoration: none;
+}
+.logout_btn{
+    text-decoration: none;
 }
 @media (max-width:620px){
     .iconName{

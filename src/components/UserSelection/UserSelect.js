@@ -1,86 +1,81 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import classes from "./UserSelect.module.css";
-import {useNavigate} from 'react-router-dom';
-import { useSelector,useDispatch } from "react-redux";
-import {changeType,changeVerification} from '../../redux/reducers/auth.data'
+// import React from "react";
+import SelectionUI from "./UserSelectUI";
+import { useNavigate } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
+// import { changeUserInfo } from "../../redux/reducers/auth.data";
+// import axios from "axios";
+// import UseAuth from "../../hooks/auth";
+// import UserSelectUI from "./UserSelectUI";
+// const UserSelect =async () => {
+//   const dispatch = useDispatch();
+
+//   const data =await axios.get("http://localhost:5001/auth/google/test", {
+//     withCredentials: true,
+//   });
+
+//   const userInfo =await  {
+//     email: data.data.email,
+//     name: data.data.name,
+//     role: data.data.role,
+//     verification: data.data.verification,
+//     _id: data.data._id,
+//     token: data.data.token,
+//   };
+//   
+//   localStorage.setItem("user", JSON.stringify(userInfo.token));
+
+//     if (await userInfo.role === "user" && await userInfo.verification === true) {
+//       return navigate("/user");
+//     }
+//     if (userInfo.role === "collegeadmin" && userInfo.verification === true) {
+//       return navigate("/collegeadmin");
+//     }
+//     if (userInfo._id === "") {
+//       return <UserSelectUI />;
+//     }
+//     return <h1>hello</h1>
+
+// }
+// export default UserSelect;
+
+import React, { useEffect } from "react";
 import axios from "axios";
 
 const UserSelect = () => {
-  const navigate=useNavigate()
   
-  
+  const navigate = useNavigate();
+  useEffect(() => {
+    return async () => {
+      const data = await axios.get(`${process.env.REACT_APP_SERVER_URL}/auth/google/test`, {
+        withCredentials: true,
+      });
 
+      const userInfo = await {
+        email: data.data.email,
+        name: data.data.name,
+        role: data.data.role,
+        verification: data.data.verification,
+        _id: data.data._id,
+        token: data.data.token,
+      };
+      
+      localStorage.setItem("user", JSON.stringify(userInfo.token));
+      if (
+        (await userInfo.role) === "user" &&
+        (await userInfo.verification) === true
+      ) {
+        return navigate("/user");
+      }
+      if (userInfo.role === "collegeadmin" && userInfo.verification === true) {
+        return navigate("/collegeadmin");
+      }
+      if (userInfo.verification === false) {
+        return navigate('/selectuser')
+      }
+    };
+  });
 
-
-
-  return (
-    <div className={classes.contianer}>
-      <div className={classes.logo}>
-        <img
-          src="https://api.freelogodesign.org/assets/thumb/logo/3756749_400.png?t=637674888290000000"
-          alt="app-logo"
-        />
-        <h2>Careersheets</h2>
-      </div>
-      <div className={classes.title}>
-        <h1>Choose  your role </h1>
-      </div>
-    
-      <div className={classes.users}>
-        <div className={classes.userCards}>
-          <Card sx={{ maxWidth: 175,maxHeight:250, padding: "1em", marginBottom: "1em",borderRadius:"40px" }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                image="https://static.vecteezy.com/system/resources/thumbnails/011/280/129/small/student-holding-degree-flat-long-shadow-icon-vector.jpg"
-                alt="job seeker"
-                sx={{marginBottom:"1em"}}
-                
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{ textAlign: "center",fontWeight:"bold",fontSize:"1.25rem"}}
-                >
-                  Job Seeker
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </div>
-        <div className={classes.userCards}>
-          <Card sx={{ maxWidth: 175,maxHeight:250, padding: "1em", marginBottom: "1em",borderRadius:"40px" }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqRe34P0nKF0Euaz4DLlj3WN4rcAuZGHnUicHoa8B2V5AqgEGfK3eX9ZekUcX3e_jRlm8&usqp=CAU"
-                alt="collegeAdmin"
-                sx={{marginBottom:"1em"}}
-              />
-              <CardContent sx={{paddingBottom:"2em"}}>
-                <Typography
-                
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{ textAlign: "center",fontWeight:"bold",fontSize:"1.25rem" }}
-                >
-                  College Admin
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </div>
-      </div>
-    </div>
-  );
+  return ;
 };
 
 export default UserSelect;

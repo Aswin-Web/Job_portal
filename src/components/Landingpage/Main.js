@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Main.module.css";
 import { Button } from "@mui/material";
-// import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import UseAuth from "../../hooks/auth" 
 const Main = () => {
+  const navigate=useNavigate()
+  const {role,verification} =UseAuth()
+
+   useEffect(() => {
+    if (role=== 'user' && verification=== true) navigate('/user')
+    else if (role==='collegeadmin' && verification===true ) navigate("/collegeadmin")
    
+   }, []);
    
   return (
     <div id="main" className={classes.main}>
